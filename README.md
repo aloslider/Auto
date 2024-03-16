@@ -4,4 +4,5 @@
 - .NET 8 C#12
 - ASP.NET WebApi (MinimalApi)
 - MS SQLServer (SSMS IDE)
+  
 Скрипт БД в файле script.sql
