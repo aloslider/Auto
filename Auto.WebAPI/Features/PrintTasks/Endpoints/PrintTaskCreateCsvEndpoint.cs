@@ -4,7 +4,6 @@ using Auto.WebAPI.Features.PrintTasks.Responses;
 using Auto.WebAPI.Services.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
 namespace Auto.WebAPI.Features.PrintTasks.Endpoints;

@@ -3,8 +3,10 @@ using Auto.WebAPI.Features.PrintTasks.Requests;
 using Auto.WebAPI.Features.PrintTasks.Responses;
 using Auto.WebAPI.Services.Interfaces;
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using SharpGrip.FluentValidation.AutoValidation.Endpoints.Extensions;
 
 namespace Auto.WebAPI.Features.PrintTasks.Endpoints;
 
@@ -56,6 +58,7 @@ class PrintTaskCreateEndpoint : IMinimalEndpoint
                 await db.SaveChangesAsync(ct);
                 return TypedResults.Ok(mapper.Map<PrintTaskCreateResponse>(result ? "Успех" : "Неудача"));
             })
+        .AddFluentValidationAutoValidation()
         .WithTags("Print")
         .WithSummary("Create print task")
         .WithDescription("Create print task. After the delay of 1-4s returns task status.")

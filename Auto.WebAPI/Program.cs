@@ -4,6 +4,7 @@ using Auto.WebAPI.Features.Installations;
 using Auto.WebAPI.Features.PrintTasks;
 using Auto.WebAPI.Services;
 using Auto.WebAPI.Services.Interfaces;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using MinimalHelpers.OpenApi;
 using SharpGrip.FluentValidation.AutoValidation.Endpoints.Extensions;
@@ -20,8 +21,9 @@ builder.Services.AddSingleton<ISessionLineParser, SessionLineParser>();
 builder.Services.AddSingleton<IPrintService, PrintService>();
 
 builder.Services.AddMinimalEndpoints();
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly()); 
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), includeInternalTypes: true);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
